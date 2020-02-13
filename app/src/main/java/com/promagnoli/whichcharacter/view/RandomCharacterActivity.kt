@@ -1,7 +1,8 @@
-package com.promagnoli.whichcharacter
+package com.promagnoli.whichcharacter.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.promagnoli.whichcharacter.R
 
 class RandomCharacterActivity : AppCompatActivity() {
 
