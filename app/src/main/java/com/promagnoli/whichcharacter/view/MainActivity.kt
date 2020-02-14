@@ -1,13 +1,13 @@
 package com.promagnoli.whichcharacter.view
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import com.promagnoli.whichcharacter.R
-import com.promagnoli.whichcharacter.di.component.DaggerMainComponent
+import com.promagnoli.whichcharacter.di.component.DaggerCharactersComponent
+import com.promagnoli.whichcharacter.goToRandomCharacterActivity
 import com.promagnoli.whichcharacter.presenter.MainPresenter
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        DaggerMainComponent.create().inject(this)
+        DaggerCharactersComponent.create().inject(this)
 
         configureCharactersList()
         configureRandomCharacterButton()
@@ -44,8 +44,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun configureRandomCharacterButton() {
         btn_random.setOnClickListener {
-            val intent = Intent(this, RandomCharacterActivity::class.java)
-            this.startActivity(intent)
+            goToRandomCharacterActivity(this)
         }
     }
 }

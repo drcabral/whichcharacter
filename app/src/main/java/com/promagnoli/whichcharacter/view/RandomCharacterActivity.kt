@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.promagnoli.whichcharacter.R
-import com.promagnoli.whichcharacter.di.component.DaggerMainComponent
+import com.promagnoli.whichcharacter.di.component.DaggerCharactersComponent
 import com.promagnoli.whichcharacter.presenter.RandomCharacterPresenter
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_random_character.*
@@ -21,7 +21,7 @@ class RandomCharacterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_random_character)
 
-        DaggerMainComponent.create().inject(this)
+        DaggerCharactersComponent.create().inject(this)
 
         swipeRefreshLayout = swipe_refresh
 

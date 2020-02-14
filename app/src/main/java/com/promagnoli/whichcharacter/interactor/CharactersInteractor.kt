@@ -34,7 +34,7 @@ class CharactersInteractor @Inject constructor(private val marvelService: Marvel
         return characters
     }
 
-    private fun makeMarvelCall(): Call<MarvelResponse> {
+    fun makeMarvelCall(): Call<MarvelResponse> {
         val timeStamp = Instant.now().toString()
         val marvelPublicKey = BuildConfig.MARVEL_PUBLIC_KEY
         val marvelPrivateKey = BuildConfig.MARVEL_PRIVATE_KEY

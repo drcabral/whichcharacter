@@ -7,7 +7,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 @Module
-class MainModule {
+class CharactersModule {
 
     private val marvelUrl = "https://gateway.marvel.com:443/v1/public/"
 
