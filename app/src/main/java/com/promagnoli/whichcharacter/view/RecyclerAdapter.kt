@@ -1,6 +1,5 @@
 package com.promagnoli.whichcharacter.view
 
-import android.content.Intent
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -28,9 +27,6 @@ class RecyclerAdapter(private val charactersNames: List<String>) :
         private var name: String? = null
 
         override fun onClick(view: View?) {
-            val context = itemView.context
-            val randomCharacterIntent = Intent(context, MainActivity::class.java)
-            context.startActivity(randomCharacterIntent)
         }
 
         fun bindName(name: String) {

@@ -1,5 +1,6 @@
 package com.promagnoli.whichcharacter.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         DaggerMainComponent.create().inject(this)
 
         configureCharactersList()
+        configureRandomCharacterButton()
     }
 
     private fun configureCharactersList() {
@@ -39,5 +41,12 @@ class MainActivity : AppCompatActivity() {
 
         val itemDecoration: ItemDecoration = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
         list_characters.addItemDecoration(itemDecoration)
+    }
+
+    private fun configureRandomCharacterButton() {
+        btn_random.setOnClickListener {
+            val intent = Intent(this, RandomCharacterActivity::class.java)
+            this.startActivity(intent)
+        }
     }
 }
