@@ -15,10 +15,9 @@ class CharactersInteractor @Inject constructor(private val marvelService: Marvel
 
     private val avengersEvent = 271
     private val responseLimit = 100
+    private val characters = mutableListOf<CharacterEntity>()
 
     fun retrieveCharacters(): List<CharacterEntity> {
-
-        val characters = mutableListOf<CharacterEntity>()
 
         makeMarvelCall().enqueue(object : Callback<MarvelResponse> {
 
@@ -26,7 +25,7 @@ class CharactersInteractor @Inject constructor(private val marvelService: Marvel
                 call: Call<MarvelResponse>,
                 response: Response<MarvelResponse>
             ) {
-                createCharactersList(response, characters)
+                createCharactersList(response)
             }
 
             override fun onFailure(call: Call<MarvelResponse>, t: Throwable) {}
@@ -48,8 +47,7 @@ class CharactersInteractor @Inject constructor(private val marvelService: Marvel
     }
 
     private fun createCharactersList(
-        response: Response<MarvelResponse>,
-        characters: MutableList<CharacterEntity>
+        response: Response<MarvelResponse>
     ) {
         response.body()?.data?.results?.forEach { result ->
             val imageUrl = result.thumbnail.path + "." + result.thumbnail.path

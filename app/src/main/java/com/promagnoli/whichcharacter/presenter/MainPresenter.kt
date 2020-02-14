@@ -6,7 +6,6 @@ import javax.inject.Inject
 class MainPresenter @Inject constructor(
     private val interactor: CharactersInteractor
 ) {
-
     fun retrieveCharactersNames(): List<String> {
         return interactor.retrieveCharacters().map { characterEntity -> characterEntity.name }
     }

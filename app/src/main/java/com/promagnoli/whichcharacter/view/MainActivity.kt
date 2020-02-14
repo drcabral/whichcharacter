@@ -1,12 +1,11 @@
 package com.promagnoli.whichcharacter.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.*
+import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import com.promagnoli.whichcharacter.R
 import com.promagnoli.whichcharacter.di.component.DaggerMainComponent
 import com.promagnoli.whichcharacter.presenter.MainPresenter
