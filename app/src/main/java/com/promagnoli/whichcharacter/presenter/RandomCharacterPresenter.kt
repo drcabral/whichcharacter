@@ -13,7 +13,7 @@ class RandomCharacterPresenter @Inject constructor(
 ) {
     private var disposable: Disposable? = null
 
-    fun getRandomCharacter() {
+    fun attributeRandomCharacter() {
         disposable = interactor.retrieveCharacters()?.subscribe {
             val characters = transformResponse(it)
             randomCharacterActivity.setCharacter(characters.random())

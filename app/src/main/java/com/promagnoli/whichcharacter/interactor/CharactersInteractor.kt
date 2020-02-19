@@ -3,7 +3,7 @@ package com.promagnoli.whichcharacter.interactor
 import com.promagnoli.whichcharacter.BuildConfig
 import com.promagnoli.whichcharacter.entity.MarvelResponse
 import com.promagnoli.whichcharacter.service.MarvelService
-import com.promagnoli.whichcharacter.toMD5
+import com.promagnoli.whichcharacter.extensions.toMD5
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers

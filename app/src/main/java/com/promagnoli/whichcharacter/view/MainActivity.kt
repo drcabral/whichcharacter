@@ -6,9 +6,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import com.promagnoli.whichcharacter.R
-import com.promagnoli.whichcharacter.WhichCharacterApp
-import com.promagnoli.whichcharacter.di.component.DaggerMainComponent
-import com.promagnoli.whichcharacter.di.module.MainModule
+import com.promagnoli.whichcharacter.extensions.mainActivityComponent
 import com.promagnoli.whichcharacter.goToRandomCharacterActivity
 import com.promagnoli.whichcharacter.presenter.MainPresenter
 import kotlinx.android.synthetic.main.activity_main.*
@@ -26,21 +24,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val applicationComponent = (application as WhichCharacterApp).getApplicationComponent()
-
-        DaggerMainComponent
-            .builder()
-            .applicationComponent(applicationComponent)
-            .mainModule(MainModule(this))
-            .build()
-            .inject(this)
-
-        configureCharactersList()
+        mainActivityComponent.inject(this)
+        presenter.configureCharactersList()
         configureRandomCharacterButton()
-    }
-
-    private fun configureCharactersList() {
-        presenter.retrieveCharactersNames()
     }
 
     private fun configureRandomCharacterButton() {

@@ -13,7 +13,7 @@ class MainPresenter @Inject constructor(
 ) {
     private var disposable: Disposable? = null
 
-    fun retrieveCharactersNames() {
+    fun configureCharactersList() {
         disposable = interactor.retrieveCharacters()?.subscribe {
             val characters = transformResponse(it)
             mainActivity.setCharactersList(characters = characters.map { character -> character.name })
